@@ -24,7 +24,7 @@ public class Prices {
     private Integer priceList;
 
     @NotBlank
-    private BigDecimal productId;
+    private Integer productId;
 
     private Integer priority;
 
