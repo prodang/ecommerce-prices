@@ -1,10 +1,12 @@
 package com.itx.ecommerceprices.infraestructure.db.entities;
 
+import com.itx.ecommerceprices.domain.model.Prices;
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
 import lombok.NoArgsConstructor;
+import org.springframework.beans.BeanUtils;
 
 import java.math.BigDecimal;
 import java.time.LocalDateTime;
@@ -13,7 +15,8 @@ import java.time.LocalDateTime;
 @NoArgsConstructor
 @Builder
 @AllArgsConstructor
-@Entity(name = "PRICES")
+@Entity
+@Table(name = "PRICES")
 public class PricesEntity {
 
     @Id
@@ -25,7 +28,7 @@ public class PricesEntity {
 
     private Integer priceList;
 
-    private BigDecimal productId;
+    private Integer productId;
 
     private Integer priority;
 
@@ -35,5 +38,14 @@ public class PricesEntity {
 
     @ManyToOne
     @JoinColumn(name = "BRAND_ID")
-    private BrandEntity brandId;
+    private BrandEntity brand;
+
+    public Prices toPrices() {
+        Prices prices = new Prices();
+
+        BeanUtils.copyProperties(this, prices);
+        prices.setBrandId(this.brand.getBrandId());
+
+        return prices;
+    }
 }

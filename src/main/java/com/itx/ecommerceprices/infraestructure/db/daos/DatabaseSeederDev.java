@@ -37,44 +37,44 @@ public class DatabaseSeederDev {
         PricesEntity[] prices = {
           PricesEntity.builder()
                   .id("1")
-                  .brandId(brandEntity)
+                  .brand(brandEntity)
                   .startDate(LocalDateTime.of(2020, 6, 14, 0, 0, 0))
                   .endDate(LocalDateTime.of(2020, 12, 31, 23, 59, 59))
                   .priceList(1)
-                  .productId(new BigDecimal(35455))
+                  .productId(35455)
                   .priority(0)
                   .price(new BigDecimal("35.50"))
                   .curr("EUR")
                   .build(),
             PricesEntity.builder()
                     .id("2")
-                    .brandId(brandEntity)
+                    .brand(brandEntity)
                     .startDate(LocalDateTime.of(2020, 6, 14, 15, 0, 0))
                     .endDate(LocalDateTime.of(2020, 6, 14, 18, 30, 0))
                     .priceList(2)
-                    .productId(new BigDecimal(35455))
+                    .productId(35455)
                     .priority(1)
                     .price(new BigDecimal("25.45"))
                     .curr("EUR")
                     .build(),
             PricesEntity.builder()
                     .id("3")
-                    .brandId(brandEntity)
+                    .brand(brandEntity)
                     .startDate(LocalDateTime.of(2020, 6, 15, 0, 0, 0))
                     .endDate(LocalDateTime.of(2020, 6, 15, 11, 0, 0))
                     .priceList(3)
-                    .productId(new BigDecimal(35455))
+                    .productId(35455)
                     .priority(1)
                     .price(new BigDecimal("30.50"))
                     .curr("EUR")
                     .build(),
             PricesEntity.builder()
                     .id("4")
-                    .brandId(brandEntity)
+                    .brand(brandEntity)
                     .startDate(LocalDateTime.of(2020, 6, 15, 16, 0, 0))
                     .endDate(LocalDateTime.of(2020, 12, 31, 23, 59, 59))
                     .priceList(4)
-                    .productId(new BigDecimal(35455))
+                    .productId(35455)
                     .priority(1)
                     .price(new BigDecimal("38.95"))
                     .curr("EUR")
@@ -82,5 +82,10 @@ public class DatabaseSeederDev {
         };
         this.pricesDao.saveAll(List.of(prices));
         log.warn("        ------- prices");
+    }
+
+    private void deleteAll(){
+        this.pricesDao.deleteAll();
+        this.brandDao.deleteAll();
     }
 }
