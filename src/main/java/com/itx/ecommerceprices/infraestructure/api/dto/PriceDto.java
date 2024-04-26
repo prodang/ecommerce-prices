@@ -1,6 +1,6 @@
 package com.itx.ecommerceprices.infraestructure.api.dto;
 
-import com.itx.ecommerceprices.domain.model.Prices;
+import com.itx.ecommerceprices.domain.model.Price;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 import org.springframework.beans.BeanUtils;
@@ -10,7 +10,7 @@ import java.time.LocalDateTime;
 
 @Data
 @NoArgsConstructor
-public class PricesDto {
+public class PriceDto {
 
     private Integer productId;
 
@@ -24,7 +24,7 @@ public class PricesDto {
 
     private BigDecimal price;
 
-    public PricesDto(Prices prices){
-        BeanUtils.copyProperties(prices, this);
+    public PriceDto(Price price){
+        BeanUtils.copyProperties(price, this);
     }
 }

@@ -1,10 +1,10 @@
 package com.itx.ecommerceprices.infraestructure.db.persistence;
 
 import com.itx.ecommerceprices.domain.expections.NotFoundException;
-import com.itx.ecommerceprices.domain.model.Prices;
-import com.itx.ecommerceprices.domain.persistence.PricesPersistence;
-import com.itx.ecommerceprices.infraestructure.db.daos.PricesDao;
-import com.itx.ecommerceprices.infraestructure.db.entities.PricesEntity;
+import com.itx.ecommerceprices.domain.model.Price;
+import com.itx.ecommerceprices.domain.persistence.PricePersistence;
+import com.itx.ecommerceprices.infraestructure.db.daos.PriceDao;
+import com.itx.ecommerceprices.infraestructure.db.entities.PriceEntity;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
@@ -14,21 +14,21 @@ import java.util.List;
 
 @Repository
 @Slf4j
-public class PricesPersistenceDB implements PricesPersistence {
+public class PricePersistenceDb implements PricePersistence {
 
     private final static String DATA_NOT_FOUND = "Data not found";
 
-    private final PricesDao pricesDao;
+    private final PriceDao priceDao;
 
     @Autowired
-    public PricesPersistenceDB(PricesDao pricesDao){
-        this.pricesDao = pricesDao;
+    public PricePersistenceDb(PriceDao priceDao){
+        this.priceDao = priceDao;
     }
 
     @Override
-    public Prices findByDateAndProductIdAndBrandId(LocalDateTime dateTime, Integer productId, Integer brandId) {
+    public Price findByDateAndProductIdAndBrandId(LocalDateTime dateTime, Integer productId, Integer brandId) {
 
-        List<PricesEntity> pricesFound = this.pricesDao.findByDateAndProductIdAndBrandId(dateTime, productId, brandId);
+        List<PriceEntity> pricesFound = this.priceDao.findByDateAndProductIdAndBrandId(dateTime, productId, brandId);
         log.warn("Found: {} price/s", pricesFound.size());
 
         if(!pricesFound.isEmpty()){
@@ -41,7 +41,7 @@ public class PricesPersistenceDB implements PricesPersistence {
         }
     }
 
-    private Prices getPrices(List<PricesEntity> pricesFound){
+    private Price getPrices(List<PriceEntity> pricesFound){
 
         if(pricesFound.size() == 2){
 

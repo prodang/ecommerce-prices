@@ -1,6 +1,6 @@
 package com.itx.ecommerceprices.infraestructure.db.entities;
 
-import com.itx.ecommerceprices.domain.model.Prices;
+import com.itx.ecommerceprices.domain.model.Price;
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
@@ -17,7 +17,7 @@ import java.time.LocalDateTime;
 @AllArgsConstructor
 @Entity
 @Table(name = "PRICES")
-public class PricesEntity {
+public class PriceEntity {
 
     @Id
     private String id;
@@ -40,12 +40,12 @@ public class PricesEntity {
     @JoinColumn(name = "BRAND_ID")
     private BrandEntity brand;
 
-    public Prices toPrices() {
-        Prices prices = new Prices();
+    public Price toPrices() {
+        Price price = new Price();
 
-        BeanUtils.copyProperties(this, prices);
-        prices.setBrandId(this.brand.getBrandId());
+        BeanUtils.copyProperties(this, price);
+        price.setBrandId(this.brand.getBrandId());
 
-        return prices;
+        return price;
     }
 }
