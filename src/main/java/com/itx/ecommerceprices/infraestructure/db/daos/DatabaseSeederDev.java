@@ -1,7 +1,7 @@
 package com.itx.ecommerceprices.infraestructure.db.daos;
 
 import com.itx.ecommerceprices.infraestructure.db.entities.BrandEntity;
-import com.itx.ecommerceprices.infraestructure.db.entities.PricesEntity;
+import com.itx.ecommerceprices.infraestructure.db.entities.PriceEntity;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Profile;
@@ -16,14 +16,14 @@ import java.util.List;
 @Profile("dev")
 public class DatabaseSeederDev {
 
-    private final PricesDao pricesDao;
+    private final PriceDao priceDao;
 
     private final BrandDao brandDao;
 
     @Autowired
-    public DatabaseSeederDev(PricesDao pricesDao, BrandDao brandDao){
+    public DatabaseSeederDev(PriceDao priceDao, BrandDao brandDao){
         this.brandDao = brandDao;
-        this.pricesDao = pricesDao;
+        this.priceDao = priceDao;
         this.seedDataBaseJava();
     }
 
@@ -34,8 +34,8 @@ public class DatabaseSeederDev {
         this.brandDao.save(brandEntity);
         log.warn("        ------- brands");
 
-        PricesEntity[] prices = {
-          PricesEntity.builder()
+        PriceEntity[] prices = {
+          PriceEntity.builder()
                   .id("1")
                   .brand(brandEntity)
                   .startDate(LocalDateTime.of(2020, 6, 14, 0, 0, 0))
@@ -46,7 +46,7 @@ public class DatabaseSeederDev {
                   .price(new BigDecimal("35.50"))
                   .curr("EUR")
                   .build(),
-            PricesEntity.builder()
+            PriceEntity.builder()
                     .id("2")
                     .brand(brandEntity)
                     .startDate(LocalDateTime.of(2020, 6, 14, 15, 0, 0))
@@ -57,7 +57,7 @@ public class DatabaseSeederDev {
                     .price(new BigDecimal("25.45"))
                     .curr("EUR")
                     .build(),
-            PricesEntity.builder()
+            PriceEntity.builder()
                     .id("3")
                     .brand(brandEntity)
                     .startDate(LocalDateTime.of(2020, 6, 15, 0, 0, 0))
@@ -68,7 +68,7 @@ public class DatabaseSeederDev {
                     .price(new BigDecimal("30.50"))
                     .curr("EUR")
                     .build(),
-            PricesEntity.builder()
+            PriceEntity.builder()
                     .id("4")
                     .brand(brandEntity)
                     .startDate(LocalDateTime.of(2020, 6, 15, 16, 0, 0))
@@ -80,12 +80,12 @@ public class DatabaseSeederDev {
                     .curr("EUR")
                     .build()
         };
-        this.pricesDao.saveAll(List.of(prices));
+        this.priceDao.saveAll(List.of(prices));
         log.warn("        ------- prices");
     }
 
     private void deleteAll(){
-        this.pricesDao.deleteAll();
+        this.priceDao.deleteAll();
         this.brandDao.deleteAll();
     }
 }

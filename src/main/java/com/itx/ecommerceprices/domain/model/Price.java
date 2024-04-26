@@ -12,7 +12,7 @@ import lombok.NoArgsConstructor;
 @NoArgsConstructor
 @Builder
 @AllArgsConstructor
-public class Prices {
+public class Price {
 
     @NotBlank
     private Integer brandId;
