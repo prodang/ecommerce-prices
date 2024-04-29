@@ -4,7 +4,6 @@ import lombok.Getter;
 import lombok.ToString;
 
 @Getter
-@ToString
 class ErrorMessage {
 
     private final String error;

@@ -41,11 +41,11 @@ public class PriceEntity {
     private BrandEntity brand;
 
     public Price toPrices() {
-        Price price = new Price();
+        Price priceResult = new Price();
 
-        BeanUtils.copyProperties(this, price);
-        price.setBrandId(this.brand.getBrandId());
+        BeanUtils.copyProperties(this, priceResult);
+        priceResult.setBrandId(this.brand.getBrandId());
 
-        return price;
+        return priceResult;
     }
 }

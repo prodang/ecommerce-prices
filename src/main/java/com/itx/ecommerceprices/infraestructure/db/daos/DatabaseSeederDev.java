@@ -83,9 +83,4 @@ public class DatabaseSeederDev {
         this.priceDao.saveAll(List.of(prices));
         log.warn("        ------- prices");
     }
-
-    private void deleteAll(){
-        this.priceDao.deleteAll();
-        this.brandDao.deleteAll();
-    }
 }

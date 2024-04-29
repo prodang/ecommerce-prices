@@ -16,7 +16,7 @@ import java.util.List;
 @Slf4j
 public class PricePersistenceDb implements PricePersistence {
 
-    private final static String DATA_NOT_FOUND = "Data not found";
+    private static final String DATA_NOT_FOUND = "Data not found";
 
     private final PriceDao priceDao;
 
