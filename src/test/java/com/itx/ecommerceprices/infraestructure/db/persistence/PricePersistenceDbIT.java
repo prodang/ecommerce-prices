@@ -34,7 +34,7 @@ class PricePersistenceDbIT {
         assertEquals(4, price.getPriceList());
         assertEquals(35455, price.getProductId());
         assertEquals(1, price.getPriority());
-        assertEquals(new BigDecimal("38.95"), price.getPrice());
+        assertEquals(new BigDecimal("38.95"), price.getFinalPrice());
         assertEquals("EUR", price.getCurr());
     }
 

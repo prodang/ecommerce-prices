@@ -1,7 +1,6 @@
 package com.itx.ecommerceprices.infraestructure.api.http_errors;
 
 import lombok.Getter;
-import lombok.ToString;
 
 @Getter
 class ErrorMessage {

@@ -43,7 +43,7 @@ public class DatabaseSeederDev {
                   .priceList(1)
                   .productId(35455)
                   .priority(0)
-                  .price(new BigDecimal("35.50"))
+                  .finalPrice(new BigDecimal("35.50"))
                   .curr("EUR")
                   .build(),
             PriceEntity.builder()
@@ -54,7 +54,7 @@ public class DatabaseSeederDev {
                     .priceList(2)
                     .productId(35455)
                     .priority(1)
-                    .price(new BigDecimal("25.45"))
+                    .finalPrice(new BigDecimal("25.45"))
                     .curr("EUR")
                     .build(),
             PriceEntity.builder()
@@ -65,7 +65,7 @@ public class DatabaseSeederDev {
                     .priceList(3)
                     .productId(35455)
                     .priority(1)
-                    .price(new BigDecimal("30.50"))
+                    .finalPrice(new BigDecimal("30.50"))
                     .curr("EUR")
                     .build(),
             PriceEntity.builder()
@@ -76,7 +76,7 @@ public class DatabaseSeederDev {
                     .priceList(4)
                     .productId(35455)
                     .priority(1)
-                    .price(new BigDecimal("38.95"))
+                    .finalPrice(new BigDecimal("38.95"))
                     .curr("EUR")
                     .build()
         };

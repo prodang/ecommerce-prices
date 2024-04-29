@@ -40,7 +40,7 @@ class PriceDaoIT {
                         2 == price.getPriceList() &&
                         35455 == price.getProductId() &&
                         1 == price.getPriority() &&
-                        0 == new BigDecimal("25.45").compareTo(price.getPrice()) &&
+                        0 == new BigDecimal("25.45").compareTo(price.getFinalPrice()) &&
                         "EUR".equals(price.getCurr())));
 
     }

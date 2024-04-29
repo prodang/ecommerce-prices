@@ -3,10 +3,12 @@ package com.itx.ecommerceprices.domain.model;
 import java.math.BigDecimal;
 import java.time.LocalDateTime;
 import jakarta.validation.constraints.NotBlank;
-import lombok.Data;
+import lombok.Getter;
 import lombok.NoArgsConstructor;
+import lombok.Setter;
 
-@Data
+@Getter
+@Setter
 @NoArgsConstructor
 public class Price {
 
@@ -24,7 +26,7 @@ public class Price {
 
     private Integer priority;
 
-    private BigDecimal price;
+    private BigDecimal finalPrice;
 
     private String curr;
 }

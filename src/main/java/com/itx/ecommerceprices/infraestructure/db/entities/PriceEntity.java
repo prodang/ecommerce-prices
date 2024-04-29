@@ -1,17 +1,21 @@
 package com.itx.ecommerceprices.infraestructure.db.entities;
 
 import com.itx.ecommerceprices.domain.model.Price;
-import jakarta.persistence.*;
+import jakarta.persistence.Entity;
+import jakarta.persistence.Id;
+import jakarta.persistence.ManyToOne;
+import jakarta.persistence.Table;
+import jakarta.persistence.JoinColumn;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
-import lombok.Data;
+import lombok.Getter;
 import lombok.NoArgsConstructor;
 import org.springframework.beans.BeanUtils;
 
 import java.math.BigDecimal;
 import java.time.LocalDateTime;
 
-@Data
+@Getter
 @NoArgsConstructor
 @Builder
 @AllArgsConstructor
@@ -32,7 +36,7 @@ public class PriceEntity {
 
     private Integer priority;
 
-    private BigDecimal price;
+    private BigDecimal finalPrice;
 
     private String curr;
 
