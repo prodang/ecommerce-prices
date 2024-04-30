@@ -1,8 +1,12 @@
 ## Description
-> Spring Boot application using Hexagonal Architecture. Built an API REST with one end-point.
+> Spring Boot application to create microservice. Built an API REST with one end-point for consult final price (pvp) 
+> and tariff depending on specific dates.
 
 ## Table design
 ![](docs/tables.png)
+
+## Hexagonal architecture
+![](docs/architecture.png)
 
 ## Technologies
 `Java` `Maven` `GitHub` `Spring-boot` `H2` `Postgresql` `Sonarcloud`
